@@ -20,12 +20,6 @@ return {
         "   █  █ █  █    ▄▄▄█  ▄    █    ▄▄▄█▄▄▄▄▄  █   █▄▄▄▄▄  █",
         "   █  █▄▄█ █   █▄▄▄█ █ █   █   █▄▄▄ ▄▄▄▄▄█ █   █▄▄▄▄▄█ █",
         "   █▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄█  █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄▄▄█▄▄▄▄▄▄▄█",
-        "",
-        "            ███    ██ ██    ██ ██ ███    ███",
-        "            ████   ██ ██    ██ ██ ████  ████",
-        "            ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "            ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "            ██   ████   ████   ██ ██      ██",
       }
       return opts
     end,
@@ -42,8 +36,6 @@ return {
     "tpope/vim-fugitive",
     lazy = false,
   },
-
-  { "phha/zenburn.nvim" },
 
   -- You can disable default plugins as follows:
   --{ "max397574/better-escape.nvim", enabled = false },
@@ -90,7 +82,6 @@ return {
   },
   {
     "mg979/vim-visual-multi",
-    event = "User AstroGitFile",
   },
   {
     "fatih/vim-go",
@@ -101,9 +92,11 @@ return {
   },
   {
     "akinsho/toggleterm.nvim",
+    version = "*",
     lazy = false,
     opts = {
       open_mapping = [[<c-\>]],
+      direction = "float",
     },
   },
   {
@@ -111,6 +104,79 @@ return {
     opts = {
       background_colour = "#000000",
       direction = "float",
+    },
+  },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false, -- set this if you want to always pull the latest change
+    opts = {
+      provider = "claude",
+      -- provider = "openai",
+      auto_suggestions_provider = "copilot",
+    },
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = "make",
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+          },
+        },
+      },
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    opts = {
+      file_types = { "markdown", "Avante" },
+    },
+    ft = { "markdown", "Avante" },
+  },
+  {
+    "folke/zen-mode.nvim",
+    event = "VeryLazy",
+    opts = {
+      window = {
+        options = {
+          signcolumn = "no",
+          number = false,
+          relativenumber = false,
+          cursorline = false,
+          cursorcolumn = false,
+          foldcolumn = "0",
+          list = false,
+        },
+      },
+    },
+    dependencies = {
+      "folke/twilight.nvim",
     },
   },
 }

@@ -6,7 +6,11 @@
 
 -- Set up custom filetypes
 vim.filetype.add {
-    extension = {
-        templ = "templ"
-    }
+  extension = {
+    templ = "templ",
+  },
 }
+
+-- for Avante
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
