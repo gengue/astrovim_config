@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.avante-nvim" },
 
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.everforest" },
