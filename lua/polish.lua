@@ -14,3 +14,21 @@ vim.filetype.add {
 -- for Avante
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
+
+function PythonSettings()
+  vim.bo.tabstop = 4
+  vim.bo.shiftwidth = 4
+end
+
+function GolangSettings()
+  vim.bo.tabstop = 4
+  vim.bo.shiftwidth = 4
+end
+
+vim.cmd [[
+augroup FileTypeSettings
+    autocmd!
+    autocmd FileType python lua PythonSettings()
+    autocmd FileType go lua GolangSettings()
+augroup END
+]]
