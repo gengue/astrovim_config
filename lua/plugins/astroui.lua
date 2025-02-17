@@ -11,7 +11,6 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    -- colorscheme = "astrodark",
     -- colorscheme = "catppuccin-mocha",
     -- colorscheme = "gruvbox",
     colorscheme = "terafox",
@@ -20,6 +19,29 @@ return {
 
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
+      init = {
+        Normal = { bg = "none" },
+        NormalNC = { bg = "none" },
+        NormalFloat = { bg = "none" },
+        FloatBorder = { bg = "none" },
+        Pmenu = { bg = "none" },
+        StatusLine = { bg = "none" },
+        StatusLineNC = { bg = "none" },
+        -- Only neo-tree gets transparency
+        NeoTreeNormal = { bg = "none" },
+        NeoTreeNormalNC = { bg = "none" },
+      },
+      -- init = {
+      --   Normal = { bg = "none" },
+      --   NormalNC = { bg = "none" },
+      --   NormalFloat = { bg = "none" },
+      --   FloatBorder = { bg = "none" },
+      --   Pmenu = { bg = "none" },
+      --   StatusLine = { bg = "none" },
+      --   StatusLineNC = { bg = "none" },
+      --   NeoTreeNormal = { bg = "none" },
+      --   NeoTreeNormalNC = { bg = "none" },
+      -- },
       -- init = { -- this table overrides highlights in all themes
       --   Normal = { bg = "none" },
       --   SignColumn = { bg = "none" },
@@ -91,9 +113,6 @@ return {
       --   NotifyTRACEBorder = { bg = "none" },
       --   NotifyBackground = { bg = "#000000" },
       -- },
-      astrodark = { -- a table of overrides/changes when applying the astrotheme theme
-        -- Normal = { bg = "#000000" },
-      },
     },
     -- Icons can be configured throughout the interface
     icons = {

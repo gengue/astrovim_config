@@ -47,6 +47,14 @@ vim.api.nvim_set_keymap(
   { desc = "Lazydocker", noremap = true, silent = true }
 )
 
+-- Code Companion
+vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<Leader>r", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd [[cab cc CodeCompanion]]
+
 -- It can be helpful to add mappings to make moving in and out of a terminal easier once toggled, whilst still keeping it open.
 -- function _G.set_terminal_keymaps()
 --   local opts = { buffer = 0 }
