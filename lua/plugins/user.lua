@@ -31,10 +31,6 @@ return {
     lazy = false,
   },
 
-  -- You can disable default plugins as follows:
-  --{ "max397574/better-escape.nvim", enabled = false },
-
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
@@ -74,12 +70,15 @@ return {
       )
     end,
   },
+
   {
     "mg979/vim-visual-multi",
   },
+
   {
     "joerdav/templ.vim",
   },
+
   {
     "akinsho/toggleterm.nvim",
     version = "*",
@@ -89,6 +88,7 @@ return {
       direction = "float",
     },
   },
+
   {
     "rcarriga/nvim-notify",
     opts = {
@@ -96,6 +96,7 @@ return {
       direction = "float",
     },
   },
+
   {
     "folke/zen-mode.nvim",
     event = "VeryLazy",
@@ -116,6 +117,7 @@ return {
       "folke/twilight.nvim",
     },
   },
+
   {
     "oysandvik94/curl.nvim",
     cmd = { "CurlOpen" },
@@ -124,13 +126,15 @@ return {
     },
     config = true,
   },
+
   {
     "f-person/auto-dark-mode.nvim",
     opts = {
       update_interval = 1000,
       set_dark_mode = function()
         vim.api.nvim_set_option_value("background", "dark", {})
-        vim.cmd "colorscheme terafox"
+        -- vim.cmd "colorscheme terafox"
+        vim.cmd "colorscheme vesper"
       end,
       set_light_mode = function()
         vim.api.nvim_set_option_value("background", "light", {})
@@ -138,54 +142,33 @@ return {
       end,
     },
   },
+
   {
-    "piersolenski/wtf.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {},
-    keys = {
-      {
-        "<leader>wa",
-        mode = { "n", "x" },
-        function() require("wtf").ai() end,
-        desc = "Debug diagnostic with AI",
-      },
-      {
-        mode = { "n" },
-        "<leader>ws",
-        function() require("wtf").search() end,
-        desc = "Search diagnostic with Google",
-      },
-      {
-        mode = { "n" },
-        "<leader>wh",
-        function() require("wtf").history() end,
-        desc = "Populate the quickfix list with previous chat history",
-      },
-      {
-        mode = { "n" },
-        "<leader>wg",
-        function() require("wtf").grep_history() end,
-        desc = "Grep previous chat history with Telescope",
-      },
-    },
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" },
   },
   {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
+    "dlants/magenta.nvim",
+    lazy = false, -- you could also bind to <leader>mt
+    build = "npm install --frozen-lockfile",
     opts = {
-      strategies = {
-        chat = {
-          adapter = "anthropic",
-        },
-      },
-      inline = {
-        adapter = "anthropic",
+      sidebar_position = "right",
+    },
+  },
+
+  {
+    "datsfilipe/vesper.nvim",
+    lazy = true,
+    opts = {
+      transparent = true, -- Boolean: Sets the background to transparent
+      italics = {
+        comments = true, -- Boolean: Italicizes comments
+        keywords = false, -- Boolean: Italicizes keywords
+        functions = false, -- Boolean: Italicizes functions
+        strings = false, -- Boolean: Italicizes strings
+        variables = false, -- Boolean: Italicizes variables
       },
     },
   },
+  { "echasnovski/mini.ai", version = "*" },
 }

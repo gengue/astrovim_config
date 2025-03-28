@@ -1,19 +1,15 @@
---if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- This will run last in the setup process and is a good place to configure
 -- things like custom filetypes. This just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 
+-- ------------------------
 -- Set up custom filetypes
+-- ------------------------
 vim.filetype.add {
   extension = {
     templ = "templ",
   },
 }
-
--- for Avante
--- views can only be fully collapsed with the global statusline
-vim.opt.laststatus = 3
 
 function PythonSettings()
   vim.bo.tabstop = 4
@@ -33,12 +29,39 @@ augroup FileTypeSettings
 augroup END
 ]]
 
-local Terminal = require("toggleterm.terminal").Terminal
-local lazydocker = Terminal:new { cmd = "lazydocker", hidden = true }
+-- ------------------------
+-- Keymaps
+-- ------------------------
 
+-- windows
+vim.keymap.set("n", "<leader><left>", ":vertical resize +20<cr>")
+vim.keymap.set("n", "<leader><right>", ":vertical resize -20<cr>")
+vim.keymap.set("n", "<leader><up>", ":resize +10<cr>")
+vim.keymap.set("n", "<leader><down>", ":resize -10<cr>")
+
+-- ------------------------
+-- Appearance
+-- ------------------------
+-- hide the folding column indicator on the left
+vim.opt.foldcolumn = "0"
+
+-- ------------
+-- Avante
+-- ------------
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+
+-- -------------------
+-- Floating Terminal
+-- -------------------
+local Terminal = require("toggleterm.terminal").Terminal
+
+-- ------------
+-- Lazydocker
+-- ------------
+local lazydocker = Terminal:new { cmd = "lazydocker", hidden = true }
 function lazydocker_toggle() lazydocker:toggle() end
 
--- Lazydocker
 vim.cmd [[command! Lazydocker lua lazydocker_toggle()]]
 vim.api.nvim_set_keymap(
   "n",
@@ -46,26 +69,3 @@ vim.api.nvim_set_keymap(
   "<cmd>lua lazydocker_toggle()<CR>",
   { desc = "Lazydocker", noremap = true, silent = true }
 )
-
--- Code Companion
-vim.keymap.set({ "n", "v" }, "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<Leader>r", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
--- Expand 'cc' into 'CodeCompanion' in the command line
-vim.cmd [[cab cc CodeCompanion]]
-
--- It can be helpful to add mappings to make moving in and out of a terminal easier once toggled, whilst still keeping it open.
--- function _G.set_terminal_keymaps()
---   local opts = { buffer = 0 }
---   vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
---   vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
---   vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
---   vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
---   vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
---   vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
---   vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
--- end
-
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
--- vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
