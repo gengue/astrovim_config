@@ -12,7 +12,7 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  -- Now using codecompanion instead
+  -- Now using aider instead at plugins/ai.lua
   -- { import = "astrocommunity.completion.avante-nvim" },
 
   { import = "astrocommunity.colorscheme.catppuccin" },
@@ -20,7 +20,6 @@ return {
   { import = "astrocommunity.colorscheme.gruvbox-baby" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
-  { import = "astrocommunity.colorscheme.rose-pine" },
   { import = "astrocommunity.colorscheme.nordic-nvim" },
   { import = "astrocommunity.colorscheme.iceberg-vim" },
   { import = "astrocommunity.colorscheme.gruvbox-nvim" },

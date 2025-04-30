@@ -41,43 +41,9 @@ return {
     end,
   },
 
-  {
-    "windwp/nvim-autopairs",
-    config = function(plugin, opts)
-      require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
-      -- add more custom autopairs configuration such as custom rules
-      local npairs = require "nvim-autopairs"
-      local Rule = require "nvim-autopairs.rule"
-      local cond = require "nvim-autopairs.conds"
-      npairs.add_rules(
-        {
-          Rule("$", "$", { "tex", "latex" })
-            -- don't add a pair if the next character is %
-            :with_pair(cond.not_after_regex "%%")
-            -- don't add a pair if  the previous character is xxx
-            :with_pair(
-              cond.not_before_regex("xxx", 3)
-            )
-            -- don't move right when repeat character
-            :with_move(cond.none())
-            -- don't delete if the next character is xx
-            :with_del(cond.not_after_regex "xx")
-            -- disable adding a newline when you press <cr>
-            :with_cr(cond.none()),
-        },
-        -- disable for .vim files, but it work for another filetypes
-        Rule("a", "a", "-vim")
-      )
-    end,
-  },
+  { "mg979/vim-visual-multi" },
 
-  {
-    "mg979/vim-visual-multi",
-  },
-
-  {
-    "joerdav/templ.vim",
-  },
+  { "joerdav/templ.vim" },
 
   {
     "akinsho/toggleterm.nvim",
@@ -128,32 +94,11 @@ return {
   },
 
   {
-    "f-person/auto-dark-mode.nvim",
-    opts = {
-      update_interval = 1000,
-      set_dark_mode = function()
-        vim.api.nvim_set_option_value("background", "dark", {})
-        -- vim.cmd "colorscheme terafox"
-        vim.cmd "colorscheme vesper"
-      end,
-      set_light_mode = function()
-        vim.api.nvim_set_option_value("background", "light", {})
-        vim.cmd "colorscheme astrolight"
-      end,
-    },
-  },
-
-  {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "codecompanion" },
-  },
-  {
-    "dlants/magenta.nvim",
-    lazy = false, -- you could also bind to <leader>mt
-    build = "npm install --frozen-lockfile",
     opts = {
-      sidebar_position = "right",
+      file_types = { "markdown", "Avante", "codecompanion" },
     },
+    ft = { "markdown", "Avante", "codecompanion" },
   },
 
   {
@@ -170,5 +115,28 @@ return {
       },
     },
   },
+
+  { "kepano/flexoki-neovim", name = "flexoki" },
+
   { "echasnovski/mini.ai", version = "*" },
+
+  {
+    "folke/ts-comments.nvim", -- Enhance Neovim's native comments
+    opts = {},
+    event = "VeryLazy",
+  },
+
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      bigfile = {
+        notify = false, -- show notification when big file detected
+        size = 1.5 * 1024 * 1024, -- 1.5MB
+        line_length = 1000, -- average line length (useful for minified files)
+      },
+    },
+  },
+
+  { "sindrets/diffview.nvim" },
 }
