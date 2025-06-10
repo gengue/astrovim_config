@@ -42,6 +42,24 @@ return {
         Search = { bg = "#575757" },
         IncSearch = { bg = "#575757" },
       },
+      -- github_light = {
+      -- Normal = { bg = "#ffffff" },
+      -- NormalNC = { bg = "#ffffff" },
+      -- NormalFloat = { bg = "none" },
+      -- FloatBorder = { bg = "none" },
+      -- Normal         xxx guifg=#1f2328 guibg=#ffffff
+      -- Normal = { bg = "#ffffff" },
+      -- NormalSB = { bg = "none" },
+      -- NormalNC       xxx guifg=#1f2328 guibg=#ffffff
+      --   NormalNC = { bg = "none" },
+      -- NeoTreeNormal  xxx links to NormalSB
+      -- NeoTreeNormal = { guibg = "none" },
+      -- NeoTreeNormalNC xxx links to NeoTreeNormal
+      -- NeoTreeNormalNC = { guibg = "none" },
+      -- posi acaso
+      -- NormalSB       xxx guifg=#1f2328 guibg=#f6f8fa
+      -- #f8f8f8
+      -- },
       -- init = {
       --   Normal = { bg = "none" },
       --   NormalNC = { bg = "none" },

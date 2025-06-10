@@ -105,7 +105,7 @@ return {
     "datsfilipe/vesper.nvim",
     lazy = true,
     opts = {
-      transparent = true, -- Boolean: Sets the background to transparent
+      transparent = true, -- Boolzyean: Sets the background to transparent
       italics = {
         comments = true, -- Boolean: Italicizes comments
         keywords = false, -- Boolean: Italicizes keywords
@@ -114,6 +114,16 @@ return {
         variables = false, -- Boolean: Italicizes variables
       },
     },
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    lazy = true,
+  },
+
+  {
+    "webhooked/kanso.nvim",
+    lazy = false,
+    priority = 1000,
   },
 
   { "kepano/flexoki-neovim", name = "flexoki" },
@@ -139,4 +149,11 @@ return {
   },
 
   { "sindrets/diffview.nvim" },
+
+  { "subnut/nvim-ghost.nvim" },
+
+  {
+    "karb94/neoscroll.nvim",
+    opts = {},
+  },
 }

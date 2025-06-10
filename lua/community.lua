@@ -24,4 +24,8 @@ return {
   { import = "astrocommunity.colorscheme.iceberg-vim" },
   { import = "astrocommunity.colorscheme.gruvbox-nvim" },
   { import = "astrocommunity.colorscheme.neofusion-nvim" },
+  { import = "astrocommunity.colorscheme.miasma-nvim" },
+  -- { import = "astrocommunity.colorscheme.github-nvim-theme", opts = {
+  --   transparent = true,
+  -- } },
 }
