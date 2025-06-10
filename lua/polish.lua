@@ -40,7 +40,7 @@ vim.keymap.set("n", "<leader><up>", ":resize +10<cr>")
 vim.keymap.set("n", "<leader><down>", ":resize -10<cr>")
 
 -- files
-vim.keymap.set("n", "<leader>cwd", ":cd %:h<cr>") -- set the current directory to the file's directory
+vim.keymap.set("n", "<leader>cwd", ":cd %:h<cr>", { desc = "set the current directory to the file's directory" })
 
 -- ------------------------
 -- Appearance
