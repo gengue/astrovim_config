@@ -126,3 +126,10 @@ vim.keymap.set(
   function() curl.pick_global_collection() end,
   { desc = "Pick a global collection and open it" }
 )
+
+-- ------------------------
+-- Git commands
+-- ------------------------
+vim.keymap.set("n", "<leader>gc", ":Git commit<CR>", { desc = "Git commit" })
+vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { desc = "Git push" })
+vim.keymap.set("n", "<leader>gs", ":Git<CR>", { desc = "Git status" })
